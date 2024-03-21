@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  postgres:
+    container_name: database
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=warehouses
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - warehouses-network
+
+  warehouses:
+    build:
+      context: ./
+      dockerfile: cmd/warehouses/Dockerfile
+    container_name: warehouses
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - warehouses-network
+
+networks:
+  warehouses-network:
+
+volumes:
+  db:
+    driver: local

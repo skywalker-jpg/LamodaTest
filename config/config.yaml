@@ -1,0 +1,15 @@
+server:
+  url: "0.0.0.0:8080"
+
+database:
+  user: postgres
+  password: pass
+  host: 172.17.0.1
+  port: 5432
+  db_name: warehouses
+  ssl_mode: disable
+  migrations_path: migrations
+
+logger:
+  sink: stdout
+  level: debug
