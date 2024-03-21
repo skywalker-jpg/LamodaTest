@@ -1,8 +1,8 @@
 GO_BUILD_PATH ?= bin
 GO_BUILD_WAREHOUSES_PATH ?= $(GO_BUILD_PATH)/warehouses/
 
-PATH := $(PATH):/home/linuxbrew/.linuxbrew/opt/go/libexec/bin
-export PATH
+##PATH := $(PATH):/home/linuxbrew/.linuxbrew/opt/go/libexec/bin
+##export PATH
 
 
 
